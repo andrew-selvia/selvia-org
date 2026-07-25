@@ -235,27 +235,6 @@
                         </td>
                       </tr>
                       {{/each event_details}}
-                      {{#if attendees}}
-                      <tr>
-                        <td align="left" class="event-detail"
-                            style="margin-bottom: 16px; font-size: 0px; padding: 10px 25px; padding-bottom: 30px; word-break: break-word;">
-                          <div class="text-primary"
-                            style="font-family:Arial, sans-serif;font-size:14px;line-height:1.4;text-align:left;color:#333333;">
-                            <div class="event-detail-label"
-                                 style="font-weight: bold; color: #666666; margin-bottom: 4px;">
-                              {{attendees_title}}
-                            </div>
-                            {{#each attendees}}
-                            <div class="guest-item"
-                                 style="margin-bottom: 4px;">• {{key}}
-                              ({{value}})
-                            </div>
-                            {{/each attendees}}
-
-                          </div>
-                        </td>
-                      </tr>
-                      {{/if attendees}}
                       {{#if rsvp}}
                       <tr>
                         <td align="center"
