@@ -37,29 +37,33 @@
         margin: 13px 0;
       }
       .color-info {
-        background: #4CAF50;
-        background-color: #4CAF50;
+        background: #34C759;
+        background-color: #34C759;
       }
       .color-warning {
-        background: #FF9800;
-        background-color: #FF9800;
+        background: #FF8D28;
+        background-color: #FF8D28;
       }
       .color-danger {
-        background: #f44336;
-        background-color: #f44336;
+        background: #FF383C;
+        background-color: #FF383C;
       }
       :root {
         color-scheme: light dark;
         supported-color-schemes: light dark;
       }
       @media (prefers-color-scheme: dark) {
-        .card {
-          background: #2c2c2e !important;
-          background-color: #2c2c2e !important;
+        .color-info {
+          background: #30D158 !important;
+          background-color: #30D158 !important;
         }
-        .footer-bg {
-          background: #242426 !important;
-          background-color: #242426 !important;
+        .color-warning {
+          background: #FF9230 !important;
+          background-color: #FF9230 !important;
+        }
+        .color-danger {
+          background: #FF4245 !important;
+          background-color: #FF4245 !important;
         }
         .text-primary {
           color: #e8e8e8 !important;
@@ -77,6 +81,23 @@
         a:not([class]) {
           color: #6cb0ff !important;
         }
+        .map-light {
+          display: none !important;
+        }
+        .map-dark {
+          display: block !important;
+        }
+      }
+      /* RSVP buttons: drop the 3rd action (Maybe); No + Yes side by side (row is
+         RTL so Yes ends up on the right), together matching the photo/map width */
+      .mj-column-per-33-3:nth-of-type(3) {
+        display: none !important;
+      }
+      .mj-column-per-33-3:nth-of-type(1),
+      .mj-column-per-33-3:nth-of-type(2) {
+        display: inline-block !important;
+        width: 50% !important;
+        max-width: 50% !important;
       }
     </style>
     <!--[if mso]>
@@ -131,58 +152,21 @@
   </head>
   <body class="email-bg" style="word-spacing:normal;background-color:transparent;">
     <div class="email-bg" style="background-color:transparent;">
-      <!--[if mso | IE]>
-      <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-             bgcolor="#4CAF50">
-        <tr>
-          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-      {{#if header}}
-      <div class="color-{{color}}" style="margin:0px auto;max-width:600px;">
-        <table class="color-{{color}}" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-               style="width:100%;">
-          <tbody>
-            <tr>
-              <td style="direction:ltr;font-size:0px;padding:5px;text-align:center;">
-                <!--[if mso | IE]>
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td class="" style="vertical-align:top;width:590px;"><![endif]-->
-                <div class="mj-column-per-100 mj-outlook-group-fix"
-                     style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                         style="vertical-align:top;" width="100%">
-                    <tbody>
-                      <tr>
-                        <td align="center"
-                            style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                          <div
-                            style="font-family:Arial, sans-serif;font-size:16px;font-weight:bold;line-height:1.4;text-align:center;color:white;">
-                            {{header}}
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!--[if mso | IE]></td></tr></table><![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      {{/if header}}
-      <!--[if mso | IE]></td></tr></table><![endif]-->
+      <!-- Hidden reference to Stalwart's inline logo attachment so mail clients
+           treat it as "used" and don't render it as a loose attachment. -->
+      <img src="{{logo_cid}}" alt="" width="1" height="1"
+           style="display:none !important;width:1px;height:1px;max-width:0;max-height:0;overflow:hidden;opacity:0;visibility:hidden;mso-hide:all;border:0;">
       <!--[if mso | IE]>
       <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
              bgcolor="white">
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-      <div class="card" style="background:white;background-color:white;margin:0px auto;max-width:600px;">
+      <div class="card" style="background:transparent;background-color:transparent;margin:0px auto;max-width:600px;">
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-               class="card" style="background:white;background-color:white;width:100%;">
+               class="card" style="background:transparent;background-color:transparent;width:100%;">
           <tbody>
             <tr>
-              <td style="direction:ltr;font-size:0px;padding:5px 5px 5px 5px;text-align:center;">
+              <td style="direction:ltr;font-size:0px;padding:5px 5px 0px 5px;text-align:center;">
                 <!--[if mso | IE]>
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                   <tr>
@@ -194,76 +178,44 @@
                     <tbody>
                       <tr>
                         <td align="center"
-                            style="font-size:0px;padding:10px 25px;padding-bottom:20px;word-break:break-word;">
-                          <table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                                 style="border-collapse:collapse;border-spacing:0px;">
-                            <tbody>
-                              <tr>
-                                <td style="width:200px;">
-                                  <img height="auto" src="{{logo_cid}}"
-                                       style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
-                                       width="200">
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                            style="font-size:0px;padding:25px 25px 15px 25px;word-break:break-word;">
+                          <div class="text-primary"
+                               style="font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;font-size:32px;font-weight:700;line-height:1.2;text-align:center;color:#333333;">
+                            Andrew Selvia &amp; 王宁 (Ann)
+                          </div>
+                          <div class="text-primary"
+                               style="font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.4;text-align:center;color:#333333;margin-top:10px;text-transform:uppercase;letter-spacing:1.5px;">
+                            kindly request your presence at their wedding
+                          </div>
                         </td>
                       </tr>
                       <tr>
                         <td align="center"
-                            style="font-size:0px;padding:10px 25px;padding-bottom:20px;word-break:break-word;">
+                            style="font-size:0px;padding:10px 25px;word-break:break-word;">
                           <img alt="" src="https://andrew-selvia.github.io/selvia-org/proposal.jpg"
                                style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width:550px;border-radius:8px;font-size:13px;"
                                width="550">
                         </td>
                       </tr>
-                      {{#each event_details}}
                       <tr>
                         <td align="left" class="event-detail"
                             style="margin-bottom: 16px; font-size: 0px; padding: 10px 25px; word-break: break-word;">
                           <div class="text-primary"
-                            style="font-family:Arial, sans-serif;font-size:14px;line-height:1.4;text-align:left;color:#333333;">
-                            <div class="event-detail-label"
-                                 style="font-weight: bold; color: #666666; margin-bottom: 4px;">
-                              {{key}}
-                              {{#if changed}}<span class="changed-pill"
-                                                   style="background-color: #4CAF50; color: white; padding: 4px 8px; border-radius: 12px; font-size: 8px; font-weight: bold; margin-left: 8px; display: inline-block;">{{changed}}</span>
-                              {{/if changed}}
-                            </div>
-                            {{#if old_value}}
-                            <div class="strikethrough"
-                                 style="text-decoration: line-through; color: #999999;">
-                              {{old_value}}
-                            </div>
-                            {{/if old_value}}
-                            <div style="display: flex; align-items: center;">
-                              <span>{{value}}</span>
-                            </div>
+                               style="font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;font-size:14px;line-height:1.4;text-align:left;color:#333333;">
+                            <a href="https://maps.apple.com/?q=Providence%20Reformed%20Church%20of%20Winnipeg"
+                               style="text-decoration:none;">
+                              <img alt="Map of the ceremony and reception venues" class="map-light"
+                                   src="https://snapshot.apple-mapkit.com/api/v1/snapshot?center=49.9209235%2C-97.141675&amp;spn=0.16%2C0.26&amp;size=600x300&amp;scale=3&amp;t=mutedStandard&amp;colorScheme=light&amp;poi=1&amp;annotations=%5B%7B%22markerStyle%22%3A%22img%22%2C%22point%22%3A%2249.972129%2C-97.059193%22%2C%22imgIdx%22%3A0%7D%2C%7B%22markerStyle%22%3A%22img%22%2C%22point%22%3A%2249.869718%2C-97.224157%22%2C%22imgIdx%22%3A1%7D%5D&amp;imgs=%5B%7B%22url%22%3A%22https%3A%2F%2Fandrew-selvia.github.io%2Fselvia-org%2Fmap-marker.png%22%2C%22width%22%3A36%2C%22height%22%3A36%7D%2C%7B%22url%22%3A%22https%3A%2F%2Fandrew-selvia.github.io%2Fselvia-org%2Freception-marker.png%22%2C%22width%22%3A36%2C%22height%22%3A36%7D%5D&amp;teamId=YX6BJY52AX&amp;keyId=AD4QRMURK6&amp;signature=4uBap98RuzzJOoq1EXYRHV--yOIzHPN9Ju5RsfwAvME_8uvfFnIXwUEwdSiwDyxngDjSE6wkikRtJDzIno_a-A"
+                                   width="550"
+                                   style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;max-width:550px;border-radius:8px;font-size:13px;">
+                              <img alt="Map of the ceremony and reception venues" class="map-dark"
+                                   src="https://snapshot.apple-mapkit.com/api/v1/snapshot?center=49.9209235%2C-97.141675&amp;spn=0.16%2C0.26&amp;size=600x300&amp;scale=3&amp;t=mutedStandard&amp;colorScheme=dark&amp;poi=1&amp;annotations=%5B%7B%22markerStyle%22%3A%22img%22%2C%22point%22%3A%2249.972129%2C-97.059193%22%2C%22imgIdx%22%3A0%7D%2C%7B%22markerStyle%22%3A%22img%22%2C%22point%22%3A%2249.869718%2C-97.224157%22%2C%22imgIdx%22%3A1%7D%5D&amp;imgs=%5B%7B%22url%22%3A%22https%3A%2F%2Fandrew-selvia.github.io%2Fselvia-org%2Fmap-marker.png%22%2C%22width%22%3A36%2C%22height%22%3A36%7D%2C%7B%22url%22%3A%22https%3A%2F%2Fandrew-selvia.github.io%2Fselvia-org%2Freception-marker.png%22%2C%22width%22%3A36%2C%22height%22%3A36%7D%5D&amp;teamId=YX6BJY52AX&amp;keyId=AD4QRMURK6&amp;signature=QV6Pfhwu05hgOQj_T8bd1ffbvW1cuO0YD9R3cNbK6KDhE2MH_801CBj8O3oSrulpssKEB4QCYuV7hEvc2tC8rQ"
+                                   width="550"
+                                   style="border:0;display:none;outline:none;text-decoration:none;height:auto;width:100%;max-width:550px;border-radius:8px;font-size:13px;">
+                            </a>
                           </div>
                         </td>
                       </tr>
-                      {{/each event_details}}
-                      {{#if rsvp}}
-                      <tr>
-                        <td align="center"
-                            style="font-size:0px;padding:10px 0;word-break:break-word;">
-                          <p class="divider"
-                            style="border-top:solid 1px #e0e0e0;font-size:1px;margin:0px auto;width:100%;">
-                          </p>
-                          <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px #e0e0e0;font-size:1px;margin:0px auto;width:590px;" role="presentation" width="590px" ><tr><td style="height:0;line-height:0;"> &nbsp;
-</td></tr></table><![endif]-->
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="left"
-                            style="font-size:0px;padding:10px 0px 5px 20px;word-break:break-word;">
-                          <div class="text-primary"
-                            style="font-family:Arial, sans-serif;font-size:14px;line-height:1.4;text-align:left;color:#333333;">
-                            {{rsvp}}
-                          </div>
-                        </td>
-                      </tr>
-                      {{/if rsvp}}
                     </tbody>
                   </table>
                 </div>
@@ -280,18 +232,18 @@
              bgcolor="white">
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-      <div class="card" style="background:white;background-color:white;margin:0px auto;max-width:600px;">
+      <div class="card" style="background:transparent;background-color:transparent;margin:0px auto;max-width:600px;">
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-               class="card" style="background:white;background-color:white;width:100%;">
+               class="card" style="background:transparent;background-color:transparent;width:100%;">
           <tbody>
             <tr>
-              <td style="direction:ltr;font-size:0px;padding:0 5px 5px 5px;text-align:center;">
+              <td style="direction:ltr;font-size:0px;padding:0 20px 5px 20px;text-align:center;">
                 <!--[if mso | IE]>
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td class="" style="width:590px;"><![endif]-->
                 <div class="mj-column-per-100 mj-outlook-group-fix"
-                     style="font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;">
+                     style="font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:rtl;">
                   <!--[if mso | IE]>
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr><![endif]-->
@@ -306,7 +258,7 @@
                       <tbody>
                         <tr>
                           <td align="left" vertical-align="middle"
-                              style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                              style="font-size:0px;padding:10px 10px;word-break:break-word;">
                             <table border="0" cellpadding="0" cellspacing="0"
                                    role="presentation"
                                    style="border-collapse:separate;width:100%;line-height:100%;">
@@ -316,7 +268,7 @@
                                     style="border:none;border-radius:4px;cursor:auto;mso-padding-alt:8px 4px;"
                                     valign="middle">
                                   <a href="{{!action_url}}" class="color-{{color}}"
-                                     style="display:inline-block;color:white;font-family:Arial, sans-serif;font-size:11px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:8px 4px;mso-padding-alt:0px;border-radius:4px;"
+                                     style="display:block;color:white;font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;font-size:16px;font-weight:bold;line-height:60px;height:60px;margin:0;text-decoration:none;text-transform:none;text-align:center;padding:0 4px;mso-padding-alt:0px;border-radius:4px;"
                                      target="_blank"> {{action_name}} </a>
                                 </td>
                               </tr>
@@ -338,50 +290,6 @@
       </div>
       <!--[if mso | IE]></td></tr></table><![endif]-->
       {{/if rsvp}}
-      {{#if footer}}
-      <!--[if mso | IE]>
-      <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-             bgcolor="#f8f8f8">
-        <tr>
-          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-      <div class="footer-bg" style="background:#f8f8f8;background-color:#f8f8f8;margin:0px auto;max-width:600px;">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-               class="footer-bg" style="background:#f8f8f8;background-color:#f8f8f8;width:100%;">
-          <tbody>
-            <tr>
-              <td style="direction:ltr;font-size:0px;padding:20px;text-align:center;">
-                <!--[if mso | IE]>
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td class="" style="vertical-align:top;width:560px;"><![endif]-->
-                <div class="mj-column-per-100 mj-outlook-group-fix"
-                     style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                         style="vertical-align:top;" width="100%">
-                    <tbody>
-                      {{#each footer}}
-                      <tr>
-                        <td align="center"
-                            style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                          <div class="text-muted"
-                            style="font-family:Arial, sans-serif;font-size:12px;line-height:1.5;text-align:center;color:#666666;">
-                            {{key}}
-                          </div>
-                        </td>
-                      </tr>
-                      {{/each footer}}
-                    </tbody>
-                  </table>
-                </div>
-                <!--[if mso | IE]></td></tr></table><![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!--[if mso | IE]></td></tr></table><![endif]-->
-      {{/if footer}}
     </div>
   </body>
-
 </html>
